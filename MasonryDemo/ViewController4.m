@@ -49,7 +49,7 @@
     
     // 获取键盘基本信息（动画时长与键盘高度）
     NSDictionary *userInfo = [notification userInfo];
-    CGRect rect = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGRect rect = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat keyboardHeight = CGRectGetHeight(rect);
     CGFloat keyboardDuration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
