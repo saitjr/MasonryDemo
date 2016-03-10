@@ -26,16 +26,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    __weak typeof(self) weakSelf = self;
-    
     _textField = [UITextField new];
     _textField.backgroundColor = [UIColor redColor];
     [self.view addSubview:_textField];
     
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.left.mas_equalTo(10);
-        make.centerX.equalTo(weakSelf.view);
+        make.centerX.equalTo(self.view);
         make.bottom.mas_equalTo(0);
         make.height.mas_equalTo(40);
     }];
@@ -55,13 +52,11 @@
     
     // 修改下边距约束
     [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        
         make.bottom.mas_equalTo(-keyboardHeight);
     }];
     
     // 更新约束
     [UIView animateWithDuration:keyboardDuration animations:^{
-        
         [self.view layoutIfNeeded];
     }];
 }
@@ -74,19 +69,16 @@
     
     // 修改为以前的约束（距下边距0）
     [_textField mas_updateConstraints:^(MASConstraintMaker *make) {
-        
         make.bottom.mas_equalTo(0);
     }];
     
     // 更新约束
     [UIView animateWithDuration:keyboardDuration animations:^{
-        
         [self.view layoutIfNeeded];
     }];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
     [super touchesBegan:touches withEvent:event];
     [self.view endEditing:YES];
 }

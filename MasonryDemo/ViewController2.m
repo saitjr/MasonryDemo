@@ -26,7 +26,6 @@
     
     // 给黑色view添加约束
     [blackView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         // 添加大小约束
         make.size.mas_equalTo(CGSizeMake(100, 100));
         // 添加左、上边距约束（左、上约束都是20）
@@ -40,7 +39,6 @@
     
     // 给灰色view添加约束
     [grayView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         // 大小、上边距约束与黑色view相同
         make.size.and.top.equalTo(blackView);
         // 添加右边距约束（这里的间距是有方向性的，左、上边距约束为正数，右、下边距约束为负数）
